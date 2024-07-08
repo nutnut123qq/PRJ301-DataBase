@@ -203,30 +203,48 @@ BEGIN
     SET @year = @year + 1; 
 END;
 
+
 INSERT INTO tblCourse (name, rate, price, time_course, description, id_category, type_course, id_lesson_time, total_lessons)
 VALUES 
     (N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 1)),
-    (N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 1)),
-    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 2)),
-    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 2)), 
-    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 3)), 
-    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 3)),
-    (N'PRJ301', 4, 400000, '12:00:00', N'Phát triển ứng dụng Java Web', 4, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 4)),
+    (N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 2)),
+    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'FA23', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 3)),
+    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 4)), 
+    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 5)), 
+    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 6)),
+    (N'PRJ301', 4, 400000, '12:00:00', N'Phát triển ứng dụng Java Web', 4, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 7)),
 
-    (N'MAE101', 5, 100000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU23', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 5)),
-    (N'MAE101', 5, 400000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 5)),
-    (N'MAD101', 4, 400000, '11:00:00', N'Toán rời rạc', 2, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 6)), 
-    (N'MAS291', 5, 400000, '09:00:00', N'Xác suất thống kê', 4, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 7)), 
+    (N'MAE101', 5, 100000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU23', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 8)),
+    (N'MAE101', 5, 400000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 9)),
+    (N'MAD101', 4, 400000, '11:00:00', N'Toán rời rạc', 2, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 10)), 
+    (N'MAS291', 5, 400000, '09:00:00', N'Xác suất thống kê', 4, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 11)), 
 
-    (N'DBI202', 5, 400000, '10:00:00', N'Các hệ cơ sở dữ liệu', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 8)),
-    (N'WED201c', 4, 400000, '11:00:00', N'Thiết kế web', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 9)), 
+    (N'DBI202', 5, 400000, '10:00:00', N'Các hệ cơ sở dữ liệu', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 12)),
+    (N'WED201c', 4, 400000, '11:00:00', N'Thiết kế web', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 13)), 
 
-    (N'JPD113', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 1', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 10)),
-    (N'JPD123', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 2', 4, 0, 'SP25', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 11)); 
+    (N'JPD113', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 1', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 14)),
+    (N'JPD123', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 2', 4, 0, 'SP25', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 15)); 
 
+INSERT INTO tblLesson (namelesson, id_course, content, time_lesson)
+VALUES 
+    (N'Buổi 1', 3, N'JAVA BASIC', '01:22:37'),
+    (N'Buổi 2', 3, N'Scanner, Trôi lệnh và cách sử dụng Try-Catch', '01:13:49'),
+    (N'Buổi 3', 3, N'NHẬP MÔN LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG', '00:55:02'),
+    (N'Buổi 4', 3, N'Nắm hết kiến thức ARRAY trong JAVA chỉ trong 20 phút ???', '00:22:32'),
+    (N'Buổi 5', 3, N'Ôn tập mảng - Inherritance Part 1', '00:53:02'),
+    (N'Buổi 6', 3, N'Inheritance - Khái niệm', '00:27:35'),
+    (N'Buổi 7', 3, N'Giới Thiệu Abstracts Class', '00:49:18'),
+    (N'Buổi 8', 3, N'String và Interface', '01:10:15'),
+    (N'Buổi 9', 3, N'Nhận đối tượng từ File', '00:54:02'),
+    (N'Buổi 10', 3, N'Tổng ôn trước thi PE', '00:53:25'),
+    (N'Buổi 11', 3, N'PE Buổi 1: Thực Chiến PE#1', '02:22:01'),
+    (N'Buổi 12', 3, N'PE Buổi 2: Thực Chiến PE#2', '01:07:57'),
+    (N'Buổi 13', 3, N'PE Buổi 3: PE Hola/HCM #1', '00:38:47'),
+    (N'Buổi 14', 3, N'PE Buổi 4: PE Hola/HCM#2', '01:39:49');
 
-
-
--- Cập nhật total_lessons từ tblLesson
-UPDATE tblCourse
-SET total_lessons = (SELECT COUNT(*) FROM tblLesson WHERE tblLesson.id_course = tblCourse.id);
+	UPDATE tblCourse
+SET total_lessons = (
+    SELECT COUNT(*)
+    FROM tblLesson
+    WHERE tblLesson.id_course = tblCourse.id
+);
