@@ -190,28 +190,6 @@ VALUES
     (N'Kỳ 4', N'Phát triển ứng dụng Java Web', 1);
 GO
 
-INSERT INTO tblCourse (name, rate, price, time_course, description, id_category, type_course, id_lesson_time)
-VALUES 
-	(N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SP24'),
-    (N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SU24'),
-	(N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SP24'),
-    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SU24'), 
-    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SU24'), 
-	(N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SP24'),
-    (N'PRJ301', 4, 400000, '12:00:00', N'Phát triển ứng dụng Java Web', 4, 0, 'SU24'),
-
-	(N'MAE101', 5, 100000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU23'),
-    (N'MAE101', 5, 400000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU24'),
-    (N'MAD101', 4, 400000, '11:00:00', N'Toán rời rạc', 2, 0, 'SU24'), 
-    (N'MAS291', 5, 400000, '09:00:00', N'Xác suất thống kê', 4, 0, 'SU24'), 
-
-    (N'DBI202', 5, 400000, '10:00:00', N'Các hệ cơ sở dữ liệu', 3, 0, 'SP24'),
-    (N'WED201c', 4, 400000, '11:00:00', N'Thiết kế web', 3, 0, 'SP24'), 
-
-    (N'JPD113', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 1', 3, 0, 'SP24'),
-    (N'JPD123', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 2', 4, 0, 'SP25'); 
-GO
-
 DECLARE @year INT = 23; 
 
 WHILE @year <= 26  
@@ -224,6 +202,30 @@ BEGIN
 
     SET @year = @year + 1; 
 END;
+
+INSERT INTO tblCourse (name, rate, price, time_course, description, id_category, type_course, id_lesson_time, total_lessons)
+VALUES 
+    (N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 1)),
+    (N'PRF192', 5, 400000, '10:00:00', N'Nhập môn lập trình', 1, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 1)),
+    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 2)),
+    (N'PRO192', 5, 400000, '11:00:00', N'Nhập môn hướng đối tượng', 2, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 2)), 
+    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 3)), 
+    (N'CSD201', 5, 400000, '09:00:00', N'Cấu trúc dữ liệu và giải thuật', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 3)),
+    (N'PRJ301', 4, 400000, '12:00:00', N'Phát triển ứng dụng Java Web', 4, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 4)),
+
+    (N'MAE101', 5, 100000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU23', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 5)),
+    (N'MAE101', 5, 400000, '10:00:00', N'Toán cho ngành kỹ thuật', 1, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 5)),
+    (N'MAD101', 4, 400000, '11:00:00', N'Toán rời rạc', 2, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 6)), 
+    (N'MAS291', 5, 400000, '09:00:00', N'Xác suất thống kê', 4, 0, 'SU24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 7)), 
+
+    (N'DBI202', 5, 400000, '10:00:00', N'Các hệ cơ sở dữ liệu', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 8)),
+    (N'WED201c', 4, 400000, '11:00:00', N'Thiết kế web', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 9)), 
+
+    (N'JPD113', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 1', 3, 0, 'SP24', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 10)),
+    (N'JPD123', 4, 400000, '12:00:00', N'Tiếng Nhật sơ cấp 2', 4, 0, 'SP25', (SELECT COUNT(*) FROM tblLesson WHERE id_course = 11)); 
+
+
+
 
 -- Cập nhật total_lessons từ tblLesson
 UPDATE tblCourse
